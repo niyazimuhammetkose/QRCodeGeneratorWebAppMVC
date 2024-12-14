@@ -1,0 +1,38 @@
+﻿@model QrCodeGeneratorWebAppMVC.Models.ViewModels.QrCodes.QrCodeIndexViewModel
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Preview</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PagedQrCodes)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Name)</a>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.Type)</td>
+                <td class="img-preview">
+                    <a href="@Url.Content("~/" + item.ImagePath)" target="_blank" rel="noopener noreferrer">
+                        <img src="@Url.Content("~/" + item.ImagePath)"
+                             alt="QR Code"
+                             class="img-thumbnail hover-preview"
+                             title="@item.Type"
+                             style="width: 100px; height: auto;" />
+                    </a>
+                </td>
+                <td class="action-icons">
+                    <a asp-action="Download" asp-route-id="@item.Id" data-tooltip="Download"><i class="fas fa-download"></i></a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" data-tooltip="Edit"><i class="fas fa-edit"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.Id" data-tooltip="Details"><i class="fas fa-info-circle"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" data-tooltip="Delete"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

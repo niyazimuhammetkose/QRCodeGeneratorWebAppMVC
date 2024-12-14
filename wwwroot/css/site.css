@@ -1,0 +1,119 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/**/
+.hover-preview {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+    .hover-preview:hover {
+        transform: scale(1.5);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+.table-hover tbody tr td,
+.table-hover thead tr th {
+    vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.action-icons a {
+    color: #6c757d;
+    margin-right: 10px;
+    position: relative;
+    text-decoration: none;
+}
+
+    .action-icons a:hover {
+        color: #007bff;
+    }
+
+    .action-icons a::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #333;
+        color: #fff;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease, visibility 0.2s ease;
+        white-space: nowrap;
+    }
+
+    .action-icons a:hover::after {
+        opacity: 1;
+        visibility: visible;
+    }
+
+.pagination {
+    justify-content: center;
+}
+
+    .pagination .active .page-link {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: white;
+    }
+
+    .pagination .disabled .page-link {
+        color: #6c757d;
+    }
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.form-group select, .form-group input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease;
+}
+
+    .form-group select:focus, .form-group input:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }

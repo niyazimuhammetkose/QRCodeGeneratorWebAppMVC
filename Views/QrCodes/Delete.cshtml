@@ -1,0 +1,163 @@
+﻿@model QrCodeGeneratorWebAppMVC.Models.QrCode
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h3>Are you sure want to delete this?</h3>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
+    <h6>@Html.DisplayFor(model => model.Type)</h6>
+    <hr />
+
+    <div>
+        <a href="@Url.Content("~/" + Model.ImagePath)" target="_blank" rel="noopener noreferrer">
+            <img src="@Url.Content("~/" + Model.ImagePath)"
+                 alt="QR Code"
+                 class="img-thumbnail hover-preview"
+                 title="@Model.Type"
+                 style="width: 100px; height: auto;" />
+        </a>
+
+        <div class="action-icons">
+            <a asp-action="Download" asp-route-id="@Model.Id" data-tooltip="Download"><i class="fas fa-download"></i></a>
+        </div>
+    </div>
+    <hr />
+    <dl class="row">
+        <!-- URL Section -->
+        @if (Model.Type == "url")
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Url)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Url)
+            </dd>
+        }
+
+        <!-- vCard Section -->
+        @if (Model.Type == "vCard")
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardFirstName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardFirstName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardLastName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardLastName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardNickName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardNickName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardOrg)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardOrg)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardOrgTitle)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardOrgTitle)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardPhone)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardPhone)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardMobilePhone)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardMobilePhone)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardWorkPhone)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardWorkPhone)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardEmail)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardEmail)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardBirthDay)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardBirthDay)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardWebsite)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardWebsite)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardStreet)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardStreet)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardHouseNumber)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardHouseNumber)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardCity)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardCity)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardStateRegion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardStateRegion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardZipCode)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardZipCode)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardCountry)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardCountry)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VCardNote)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VCardNote)
+            </dd>
+        }
+    </dl>
+
+    <hr />
+
+    <div class="action-icons">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> | 
+            <a asp-action="Index" data-tooltip="Back To List"><i class="fas fa-backward"></i></a>
+        </form>
+    </div>
+</div>

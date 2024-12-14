@@ -1,0 +1,165 @@
+﻿@model QrCodeGeneratorWebAppMVC.Models.QrCode
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
+    <h6>@Html.DisplayFor(model => model.Type)</h6>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Type" class="control-label">Type</label>
+                    <select asp-for="Type" class="form-control" id="typeSelector">
+                        <option value="">-- Select Type --</option>
+                        <option value="url">URL</option>
+                        <option value="vCard">vCard</option>
+                    </select>
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+
+                <!-- URL Section -->
+                <div id="urlSection" class="form-group" style="display:none;">
+                    <label asp-for="Url" class="control-label">URL</label>
+                    <input asp-for="Url" class="form-control" />
+                    <span asp-validation-for="Url" class="text-danger"></span>
+                </div>
+
+                <!-- vCard Section -->
+                <div id="vCardSection" style="display:none;">
+                    <div class="form-group">
+                        <label asp-for="VCardFirstName" class="control-label"></label>
+                        <input asp-for="VCardFirstName" class="form-control" />
+                        <span asp-validation-for="VCardFirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardLastName" class="control-label"></label>
+                        <input asp-for="VCardLastName" class="form-control" />
+                        <span asp-validation-for="VCardLastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardNickName" class="control-label"></label>
+                        <input asp-for="VCardNickName" class="form-control" />
+                        <span asp-validation-for="VCardNickName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardOrg" class="control-label"></label>
+                        <input asp-for="VCardOrg" class="form-control" />
+                        <span asp-validation-for="VCardOrg" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardOrgTitle" class="control-label"></label>
+                        <input asp-for="VCardOrgTitle" class="form-control" />
+                        <span asp-validation-for="VCardOrgTitle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardPhone" class="control-label"></label>
+                        <input asp-for="VCardPhone" class="form-control" />
+                        <span asp-validation-for="VCardPhone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardMobilePhone" class="control-label"></label>
+                        <input asp-for="VCardMobilePhone" class="form-control" />
+                        <span asp-validation-for="VCardMobilePhone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardWorkPhone" class="control-label"></label>
+                        <input asp-for="VCardWorkPhone" class="form-control" />
+                        <span asp-validation-for="VCardWorkPhone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardEmail" class="control-label"></label>
+                        <input asp-for="VCardEmail" class="form-control" />
+                        <span asp-validation-for="VCardEmail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardBirthDay" class="control-label"></label>
+                        <input asp-for="VCardBirthDay" class="form-control" />
+                        <span asp-validation-for="VCardBirthDay" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardWebsite" class="control-label"></label>
+                        <input asp-for="VCardWebsite" class="form-control" />
+                        <span asp-validation-for="VCardWebsite" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardStreet" class="control-label"></label>
+                        <input asp-for="VCardStreet" class="form-control" />
+                        <span asp-validation-for="VCardStreet" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardHouseNumber" class="control-label"></label>
+                        <input asp-for="VCardHouseNumber" class="form-control" />
+                        <span asp-validation-for="VCardHouseNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardCity" class="control-label"></label>
+                        <input asp-for="VCardCity" class="form-control" />
+                        <span asp-validation-for="VCardCity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardStateRegion" class="control-label"></label>
+                        <input asp-for="VCardStateRegion" class="form-control" />
+                        <span asp-validation-for="VCardStateRegion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardZipCode" class="control-label"></label>
+                        <input asp-for="VCardZipCode" class="form-control" />
+                        <span asp-validation-for="VCardZipCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardCountry" class="control-label"></label>
+                        <input asp-for="VCardCountry" class="form-control" />
+                        <span asp-validation-for="VCardCountry" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VCardNote" class="control-label"></label>
+                        <input asp-for="VCardNote" class="form-control" />
+                        <span asp-validation-for="VCardNote" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+        <hr />
+        <div class="action-icons">
+            <a asp-action="Index" data-tooltip="Back To List"><i class="fas fa-backward"></i></a>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        <script>
+            function toggleSections() {
+                const selectedType = document.getElementById("typeSelector").value;
+                document.getElementById("urlSection").style.display = selectedType === "url" ? "block" : "none";
+                document.getElementById("vCardSection").style.display = selectedType === "vCard" ? "block" : "none";
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                toggleSections();
+            });
+
+            document.getElementById("typeSelector").addEventListener("change", function () {
+                toggleSections();
+            });
+        </script>
+    }
+}
